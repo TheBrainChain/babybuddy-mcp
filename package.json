@@ -1,0 +1,53 @@
+{
+  "name": "babybuddy-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for the Baby Buddy API - track and manage baby care data including feedings, diaper changes, sleep, tummy time, and more",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "babybuddy-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "prepare": "npm run build",
+    "fetch-schema": "bash scripts/fetch-schema.sh",
+    "test": "npm run fetch-schema && vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0",
+    "yaml": "^2.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "baby-buddy",
+    "babybuddy",
+    "baby",
+    "tracking",
+    "parenting",
+    "childcare"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babybuddy/babybuddy-mcp-server"
+  },
+  "homepage": "https://github.com/babybuddy/babybuddy-mcp-server#readme"
+}
