@@ -27,7 +27,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Pack mcpb
-        run: npx mcpb pack
+        run: npx @anthropic-ai/mcpb pack
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
