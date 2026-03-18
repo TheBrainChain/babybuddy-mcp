@@ -20,7 +20,7 @@ function loadVersion(): string {
       // continue
     }
   }
-  return "1.0.1";
+  return "1.0.2";
 }
 
 const version = loadVersion();

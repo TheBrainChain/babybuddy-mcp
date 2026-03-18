@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.2",
   "name": "babybuddy-mcp-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP server for the Baby Buddy API - track and manage baby care data including feedings, diaper changes, sleep, tummy time, and more",
   "long_description": "MCP server for the Baby Buddy API - track and manage baby care data including feedings, diaper changes, sleep, tummy time, and more",
   "author": {
