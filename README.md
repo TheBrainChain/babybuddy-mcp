@@ -18,11 +18,26 @@ An MCP (Model Context Protocol) server that provides full access to the [Baby Bu
 
 ## Installation
 
+### Claude Desktop (Recommended)
+
+Install directly in Claude Desktop using the `.mcpb` package:
+
+1. Download the latest `babybuddy-mcp-server.mcpb` from [Releases](https://github.com/babybuddy/babybuddy-mcp-server/releases)
+2. Open Claude Desktop and go to **Settings > Extensions**
+3. Drag the `.mcpb` file into the Extensions panel, or click **Install from file** and select it
+4. When prompted, enter your:
+   - **Baby Buddy URL** — the base URL of your Baby Buddy instance (e.g. `http://localhost:8000`)
+   - **Baby Buddy API Key** — found in Baby Buddy under **Settings > API Key**
+
+The server will connect automatically. Your API key is stored securely in the OS keychain.
+
+### npm
+
 ```bash
 npm install -g babybuddy-mcp-server
 ```
 
-Or install from source:
+### From source
 
 ```bash
 git clone https://github.com/babybuddy/babybuddy-mcp-server.git
@@ -40,9 +55,27 @@ The server requires two environment variables:
 | `BABY_BUDDY_URL` | Base URL of your Baby Buddy instance | `http://localhost:8000` |
 | `BABY_BUDDY_API_KEY` | API key from Baby Buddy user settings | `your-api-key-here` |
 
-### Claude Desktop / Claude Code
+> If you installed via the `.mcpb` package in Claude Desktop, these are configured automatically through the setup prompts. The manual configuration below is only needed for npm or source installs.
 
-Add to your MCP settings:
+### Claude Desktop (manual)
+
+Add to your Claude Desktop config file (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "babybuddy": {
+      "command": "babybuddy-mcp-server",
+      "env": {
+        "BABY_BUDDY_URL": "http://localhost:8000",
+        "BABY_BUDDY_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+If installed from source, use the full path:
 
 ```json
 {
@@ -59,20 +92,10 @@ Add to your MCP settings:
 }
 ```
 
-If installed globally via npm:
+### Claude Code
 
-```json
-{
-  "mcpServers": {
-    "babybuddy": {
-      "command": "babybuddy-mcp-server",
-      "env": {
-        "BABY_BUDDY_URL": "http://localhost:8000",
-        "BABY_BUDDY_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
+```bash
+claude mcp add babybuddy -- env BABY_BUDDY_URL=http://localhost:8000 BABY_BUDDY_API_KEY=your-api-key-here babybuddy-mcp-server
 ```
 
 ## Available Tools

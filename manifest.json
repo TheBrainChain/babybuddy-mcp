@@ -1,0 +1,44 @@
+{
+  "manifest_version": "0.2",
+  "name": "babybuddy-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for the Baby Buddy API - track and manage baby care data including feedings, diaper changes, sleep, tummy time, and more",
+  "long_description": "MCP server for the Baby Buddy API - track and manage baby care data including feedings, diaper changes, sleep, tummy time, and more",
+  "author": {
+    "name": "Christopher Coogan"
+  },
+  "user_config": {
+    "baby_buddy_url": {
+      "type": "string",
+      "title": "Baby Buddy URL",
+      "description": "The base URL for your Baby Buddy instance (e.g., http://localhost:8000)",
+      "required": true
+    },
+    "baby_buddy_api_key": {
+      "type": "string",
+      "title": "Baby Buddy API Key",
+      "description": "API key from your Baby Buddy user settings",
+      "required": true,
+      "sensitive": true
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
+      "env": {
+        "BABY_BUDDY_URL": "${user_config.baby_buddy_url}",
+        "BABY_BUDDY_API_KEY": "${user_config.baby_buddy_api_key}"
+      }
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babybuddy/babybuddy-mcp-server"
+  }
+}
